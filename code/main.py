@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands,tasks
 import Spotify
 import os
-import youtube_dl
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
