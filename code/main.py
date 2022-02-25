@@ -4,7 +4,7 @@ import Spotify
 import os
 import youtube_dl
 
-playlist = "https://open.spotify.com/playlist/1taRfYYEpft7IQ5AkYFQnH"
+playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
 bot = commands.Bot(command_prefix='!',intents=intents)
 
