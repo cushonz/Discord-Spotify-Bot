@@ -34,7 +34,7 @@ async def stop(ctx):
 		else:
 			await ctx.send("Couldn't find '" + name + "', try again.")
 	except:
-		os.execv(sys.argv[0], sys.argv)
+		Spotify.util.prompt_for_user_token(cred['userName'], scope)
 		
 
 
