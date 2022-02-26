@@ -16,7 +16,7 @@ def getCreds():
 	
 bot_cred = getCreds()
 print(Spotify.cred)
-print(cred)
+
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
