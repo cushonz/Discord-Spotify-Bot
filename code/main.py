@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands,tasks
 import Spotify
 import os
+import sys
 
 
 def getCreds():
