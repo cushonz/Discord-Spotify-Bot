@@ -15,7 +15,7 @@ def getCreds():
 	return {'token' : data[0]}
 	
 bot_cred = getCreds()
-print(Spotify.creds)
+print(Spotify.cred)
 print(cred)
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
