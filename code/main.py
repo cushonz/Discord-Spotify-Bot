@@ -39,4 +39,4 @@ async def stop(ctx):
 
 
 		  
-bot.run(creds['token'])
+bot.run(cred['token'])
