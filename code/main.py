@@ -3,6 +3,18 @@ from discord.ext import commands,tasks
 import Spotify
 import os
 
+
+def getCreds():
+	with open(os.path.expanduser('~/.bot_creds'), 'r') as file:
+		content = file.read()
+	if '\r' in content:
+		data = content.split('\r\n')
+	else:
+		data = content.split('\n')
+	return {'token' : data[0]}
+	
+creds = getCreds()
+
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
 bot = commands.Bot(command_prefix='!',intents=intents)
@@ -25,6 +37,5 @@ async def stop(ctx):
 		
 
 
-		
-        
-bot.run('OTQ2NjQzMDE5NjA2Njc5NTky.YhhsAw.jYosZE5fsHuXQ6_IjJwdFKqKju8')
+		  
+bot.run(creds['token'])
