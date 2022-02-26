@@ -14,7 +14,7 @@ def getCreds():
 		data = content.split('\n')
 	return {'token' : data[0]}
 	
-cred = getCreds()
+bot_cred = getCreds()
 print(Spotify.creds)
 print(cred)
 
@@ -36,9 +36,9 @@ async def stop(ctx):
 		else:
 			await ctx.send("Couldn't find '" + name + "', try again.")
 	except:
-		Spotify.util.prompt_for_user_token(Spotify.creds['userName'], Spotify.scope)
+		Spotify.util.prompt_for_user_token(Spotify.cred['userName'], Spotify.scope)
 		
 
 
 		  
-bot.run(cred['token'])
+bot.run(bot_cred['token'])
