@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands,tasks
 import Spotify
+import spotipy.util as util
 import os
 import sys
 
@@ -35,9 +36,8 @@ async def stop(ctx):
 			await ctx.send("Added "+ name + " to : "+ playlist)
 		else:
 			await ctx.send("Couldn't find '" + name + "', try again.")
-	except:
-		Spotify.util.prompt_for_user_token(Spotify.cred['userName'], Spotify.scope)
-		
+	except:		
+		util.get_cached_token()
 
 
 		  
