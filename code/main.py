@@ -15,6 +15,8 @@ def getCreds():
 	return {'token' : data[0]}
 	
 cred = getCreds()
+print(Spotify.scope)
+print(cred)
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
@@ -34,7 +36,7 @@ async def stop(ctx):
 		else:
 			await ctx.send("Couldn't find '" + name + "', try again.")
 	except:
-		Spotify.util.prompt_for_user_token(cred['userName'], scope)
+		Spotify.util.prompt_for_user_token(cred['userName'], Spotify.scope)
 		
 
 
