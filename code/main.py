@@ -14,7 +14,7 @@ def getCreds():
 		data = content.split('\n')
 	return {'token' : data[0]}
 	
-creds = getCreds()
+cred = getCreds()
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
 intents = discord.Intents().default()
