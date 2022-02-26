@@ -43,6 +43,7 @@ def createPlaylist(playlist_name, silent=False):
         exit()
 
 def songUri(findMe):
+    util.get_cached_token()
     result = sp.search(findMe)
     if len(result['tracks']['items']) < 1:
         return ""
