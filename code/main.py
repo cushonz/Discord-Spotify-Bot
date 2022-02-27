@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands,tasks
 import Spotify
 import spotipy.util as util
+import time
 import os
 import sys
-
 
 def getCreds():
 	with open(os.path.expanduser('~/.bot_creds'), 'r') as file:
@@ -34,10 +34,14 @@ async def stop(ctx):
 	try:
 		if Spotify.addToPlaylist(name) != None:
 			await ctx.send("Added "+ name + " to : "+ playlist)
+			time.sleep(3)
+			os.system("python3 main.py")
 		else:
 			await ctx.send("Couldn't find '" + name + "', try again.")
+			time.sleep(3)
+			os.system("python3 main.py")
 	except:		
-		util.get_cached_token()
+		os.system("python3 main.py")
 
 
 		  
