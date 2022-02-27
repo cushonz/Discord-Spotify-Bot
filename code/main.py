@@ -6,6 +6,8 @@ import time
 import os
 import sys
 
+passed_song = sys.argv
+
 def getCreds():
 	with open(os.path.expanduser('~/.bot_creds'), 'r') as file:
 		content = file.read()
@@ -25,7 +27,11 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 
 @bot.event
 async def on_ready():
-    print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
+	print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
+	if Spotify.addToPlaylist(passed_song) != None:
+		await ctx.send("!!!PASSED FROM PREV DEBUG!!---Added "+ name + " to : "+ playlist)
+		time.sleep(3)
+		os.system("python3 main.py")
 	
 
 @bot.command(name='rec', help='Adds song to playlist')
