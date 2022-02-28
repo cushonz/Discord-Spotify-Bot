@@ -35,7 +35,7 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 @bot.event
 async def on_ready():
 	print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
-	channel = bot.get_channel(946643918257283092)
+	channel = bot.get_channel(947790182042726400)
 	if Spotify.addToPlaylist(passed_song) != None:
 			S_L = "https://open.spotify.com/track/" + (Spotify.songUri(passed_song).split(":"))[2]
 			await channel.send("Added "+ passed_song + " to the playlist!\n"+ S_L)
