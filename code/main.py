@@ -29,6 +29,7 @@ print(Spotify.cred)
 
 
 playlist = "https://open.spotify.com/playlist/7uhggSvWHcNLnJL8hTEd3q"
+S_L = "https://open.spotify.com/track/" + (Spotify.songUri(passed_song).split(":"))[2]
 intents = discord.Intents().default()
 bot = commands.Bot(command_prefix='!',intents=intents)
 
@@ -37,7 +38,7 @@ async def on_ready():
 	print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 	channel = bot.get_channel(946643918257283092)
 	if Spotify.addToPlaylist(passed_song) != None:
-			await channel.send("Added "+ passed_song + " to : "+ playlist)
+			await channel.send("Added "+ passed_song + " to the playlist!\n"+ S_L)
 	else:
 			await channel.send("Couldn't find '" + passed_song + "', try again in a few seconds.")
 
