@@ -35,24 +35,18 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 @bot.event
 async def on_ready():
 	print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
-	if Spotify.addToPlaylist(passed_song) != "":
-		print("added cached")
+	channel = bot.get_channel(946643918257283092)
+	if Spotify.addToPlaylist(passed_song) != None:
+			await channel.send("Added "+ passed_song + " to : "+ playlist)
+	else:
+			await channel.send("Couldn't find '" + passed_song + "', try again in a few seconds.")
+
 	
 
 @bot.command(name='rec', help='Adds song to playlist')
 async def stop(ctx):
 	name = ctx.message.content[4:]
-	try:
-		if Spotify.addToPlaylist(name) != None:
-			await ctx.send("Added "+ name + " to : "+ playlist)
-			time.sleep(3)
-			os.system("python3 main.py")
-		else:
-			await ctx.send("Couldn't find '" + name + "', try again.")
-			time.sleep(3)
-			os.system("python3 main.py")
-	except:		
-		os.system("python3 main.py")
+	os.system("python3 main.py " + name)
 
 
 		  
