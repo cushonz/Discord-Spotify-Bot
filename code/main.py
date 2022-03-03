@@ -56,9 +56,9 @@ async def stop(ctx):
 async def modYT(ctx):	
 	vid_id = ctx.message.content[3:]
 	file = open("yt_ids.list","a")
-	file.write(vid_id.split('=')[1]+"\n")
+	file.write(vid_id.split('/')[3]+"\n")
 	file.close()
-	ctx.send("Added your link to the playlist queue :)")
+	await ctx.send("Added your link to the playlist queue :)")
 
 @bot.command(name='getyt', help='Generates youtube link')
 async def genlink(ctx):
