@@ -25,6 +25,6 @@ The [Discord Bot API](https://discord.com/developers/docs/intro) is well documen
 
 !rec <song name> - This command will add a song to the spotify playlist
 
-!yt <youtube mobile link> - This command will add a video to the youtube queue
-!getyt - This command will create a link to the YouTube queue.
-!clearQ - This will clear the youtube q and make a backup incase anything cool was in there that the other person wanted.
+* !yt <youtube mobile link> - This command will add a video to the youtube queue
+* !getyt - This command will create a link to the YouTube queue.
+* !clearQ - This will clear the youtube q and make a backup incase anything cool was in there that the other person wanted.
