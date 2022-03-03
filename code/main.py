@@ -1,4 +1,5 @@
 import discord
+import json
 from discord.ext import commands,tasks
 import Spotify
 import spotipy.util as util
@@ -7,7 +8,6 @@ import os
 import sys
 
 passed_song = sys.argv[1:]
-#passed_song = "rockstar"
 
 def convert(lst):
       
@@ -40,10 +40,10 @@ async def on_ready():
 	if Spotify.addToPlaylist(passed_song) != None:
 		S_L = "https://open.spotify.com/track/" + (Spotify.songUri(passed_song).split(":"))[2]
 		await channel2.send("Added "+ passed_song + " to the playlist!\n"+ S_L)
+		time.sleep(1)
 		await channel.send("Added "+ passed_song + " to the playlist!\n"+ S_L)
 	else:
 		await channel2.send("Couldn't find '" + passed_song + "', try again in a few seconds.")
-		await channel.send("Couldn't find '" + passed_song + "', try again in a few seconds.")
 
 	
 
@@ -52,6 +52,30 @@ async def stop(ctx):
 	name = ctx.message.content[4:]
 	os.system("python3 main.py " + name)
 
+@bot.command(name='yt', help='Adds video to youtube playlist queue')
+async def modYT(ctx):	
+	vid_id = ctx.message.content[3:]
+	file = open("yt_ids.list","a")
+	file.write(vid_id.split('=')[1]+"\n")
+	file.close()
+	ctx.send("Added your link to the playlist queue :)")
 
-		  
+@bot.command(name='getyt', help='Generates youtube link')
+async def genlink(ctx):
+	empty_link = "http://www.youtube.com/watch_videos?video_ids="
+	file = open("yt_ids.list","r")
+	data = file.read()
+	link_list = data.split("\n")
+	file.close()
+	for i in range(len(link_list)-1):
+		empty_link = empty_link + link_list[i]+","
+	await ctx.channel.send(empty_link[:-1] +"\n Clear the queue if videos are super old using '!clearQ'")
+
+@bot.command(name='clearQ', help='Clears YouTube queue')
+async def clearQ(ctx):
+	os.system("mv yt_ids.list yt_ids.bk")
+	os.system("touch yt_ids.list")
+	await ctx.channel.send("Cleared!")
+
+
 bot.run(bot_cred['token'])
