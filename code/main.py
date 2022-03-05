@@ -89,5 +89,6 @@ async def rml(ctx):
 		if pos > 0:
 			file.seek(pos,os.SEEK_SET)
 			file.truncate()
+	await ctx.channel.send("Previous request removed.")
 
 bot.run(bot_cred['token'])
