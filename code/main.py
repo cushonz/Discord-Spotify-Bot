@@ -56,7 +56,7 @@ async def stop(ctx):
 async def modYT(ctx):	
 	vid_id = ctx.message.content[3:]
 	vid_split = vid_id.split("=")
-	if vid_split > 1:
+	if len(vid_split) > 1:
 		vid = vid_id[1]
 	else :
 		vid = vid_split[0].split("/")[3]
