@@ -56,7 +56,7 @@ async def stop(ctx):
 async def modYT(ctx):	
 	vid_id = ctx.message.content[3:]
 	file = open("yt_ids.list","a")
-	file.write(vid_id[len(vid_id)-11:len(vid_id)]+"\n")
+	file.write(vid_id[len(vid_id)-11:]+"\n")
 	p#rint(vid_id[:11]+"\n")
 	file.close()
 	await ctx.send("Added your link to the playlist queue :)")
