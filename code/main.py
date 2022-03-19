@@ -56,7 +56,8 @@ async def stop(ctx):
 async def modYT(ctx):	
 	vid_id = ctx.message.content[3:]
 	file = open("yt_ids.list","a")
-	file.write(vid_id.split('/')[3]+"\n")
+	file.write(vid_id[:11]+"\n")
+	print(vid_id[:11]+"\n")
 	file.close()
 	await ctx.send("Added your link to the playlist queue :)")
 
@@ -76,6 +77,11 @@ async def clearQ(ctx):
 	os.system("mv yt_ids.list yt_ids.bk")
 	os.system("touch yt_ids.list")
 	await ctx.channel.send("Cleared!")
+
+#@bot.command(name='adv',help = 'Adds an idea to the pool of adventure ')
+#async def add_to_pool(ctx):
+
+
 
 @bot.command(name='rml', help = 'Removes Last, use if the is no thumbnail on your reccomendation')
 async def rml(ctx):
