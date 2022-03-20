@@ -121,7 +121,7 @@ async def fetch_adventure(ctx):
 	recipe_arr = data.split("\n")
 	file.close()
 	x = random.randint(0,len(recipe_arr)-1)
-	await ctx.send("Recipe: "+ recipe_arr[x])
+	await ctx.send("Recipe: \n"+ recipe_arr[x])
 
 
 @bot.command(name='rml', help = 'Removes Last, use if there is no thumbnail on your reccomendation')
