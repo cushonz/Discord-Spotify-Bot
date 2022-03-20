@@ -72,6 +72,17 @@ async def genlink(ctx):
 		empty_link = empty_link + link_list[i]+","
 	await ctx.channel.send(empty_link[:-1] +"\n Clear the queue if videos are super old using '!clearQ'")
 
+@bot.command(name='getyt', help='Generates youtube link')
+async def genlink(ctx):
+	empty_link = "http://www.youtube.com/watch_videos?video_ids="
+	file = open("yt_ids.list","r")
+	data = file.read()
+	link_list = data.split("\n")
+	file.close()
+	for i in range(len(link_list)-1):
+		empty_link = empty_link + link_list[i]+","
+	await ctx.channel.send(empty_link[:-1] +"\n Clear the queue if videos are super old using '!clearQ'")
+
 @bot.command(name='clearQ', help='Clears YouTube queue')
 async def clearQ(ctx):
 	os.system("mv yt_ids.list yt_ids.bk")
@@ -92,7 +103,7 @@ async def fetch_adventure(ctx):
 	data = file.read()
 	adv_arr = data.split("\n")
 	file.close()
-	x = random.randint(0,len(adv_arr))
+	x = random.randint(0,len(adv_arr)-1)
 	await ctx.send("Adventure Suggestions: "+ adv_arr[x])
 
 @bot.command(name = 'food',help = "Add a link to a recipe" )
@@ -109,7 +120,7 @@ async def fetch_adventure(ctx):
 	data = file.read()
 	recipe_arr = data.split("\n")
 	file.close()
-	x = random.randint(0,len(recipe_arr))
+	x = random.randint(0,len(recipe_arr)-1)
 	await ctx.send("Recipe: "+ recipe_arr[x])
 
 
