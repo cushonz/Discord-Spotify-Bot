@@ -72,7 +72,7 @@ async def genlink(ctx):
 		empty_link = empty_link + link_list[i]+","
 	await ctx.channel.send(empty_link[:-1] +"\n Clear the queue if videos are super old using '!clearQ'")
 
-@bot.command(name='getyt', help='Generates youtube link')
+@bot.command(name='genyt', help='Generates youtube link')
 async def genlink(ctx):
 	empty_link = "http://www.youtube.com/watch_videos?video_ids="
 	file = open("yt_ids.list","r")
