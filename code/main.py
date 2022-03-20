@@ -82,6 +82,7 @@ async def clearQ(ctx):
 async def add_to_pool(ctx):
 	activity = ctx.message.content[3:]
 	print(activity)
+	file = open("adv.list","a")
 	file.write(activity+"\n")
 	file.close()
 	await ctx.send("Added to list")
