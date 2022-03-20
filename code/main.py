@@ -1,4 +1,5 @@
 import discord
+import random
 import json
 from discord.ext import commands,tasks
 import Spotify
@@ -77,9 +78,21 @@ async def clearQ(ctx):
 	os.system("touch yt_ids.list")
 	await ctx.channel.send("Cleared!")
 
-#@bot.command(name='adv',help = 'Adds an idea to the pool of adventure ')
-#async def add_to_pool(ctx):
+@bot.command(name='adv',help = 'Adds an idea to the pool of adventure ')
+async def add_to_pool(ctx):
+	activity = ctx.message.content[3:]
+	print(activity)
+	file.write(activity+"\n")
+	file.close()
+	await ctx.send("Added to list")
 
+@bot.command(name = 'bored', help = "Tell me you're bored and I'll give you something to do")
+async def fecth_adventure(ctx):
+	file = open("adv.list","r")
+	data = file.read()
+	adv_arr = data.split("\n")
+	x = random.randint(0,len(adv_arr)-1)
+	await ctx.send("Adventure Suggestions: "+ adv_arr[x])
 
 
 @bot.command(name='rml', help = 'Removes Last, use if the is no thumbnail on your reccomendation')
