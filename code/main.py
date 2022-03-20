@@ -81,22 +81,39 @@ async def clearQ(ctx):
 @bot.command(name='adv',help = 'Adds an idea to the pool of adventure ')
 async def add_to_pool(ctx):
 	activity = ctx.message.content[5:]
-	print(activity)
 	file = open("adv.list","a")
 	file.write(activity+"\n")
 	file.close()
 	await ctx.send("Added to list")
 
 @bot.command(name = 'bored', help = "Tell me you're bored and I'll give you something to do")
-async def fecth_adventure(ctx):
+async def fetch_adventure(ctx):
 	file = open("adv.list","r")
 	data = file.read()
 	adv_arr = data.split("\n")
+	file.close()
 	x = random.randint(0,len(adv_arr))
 	await ctx.send("Adventure Suggestions: "+ adv_arr[x])
 
+@bot.command(name = 'food',help = "Add a link to a recipe" )
+async def add_recipe(ctx):
+	link = ctx.message.content[6:]
+	file = open("recipe.list","a")
+	file.write(link+"\n")
+	file.close()
+	await ctx.send("Added to list")
 
-@bot.command(name='rml', help = 'Removes Last, use if the is no thumbnail on your reccomendation')
+@bot.command(name = 'hungry', help = 'I will provide a link to a recipe')
+async def fetch_adventure(ctx):
+	file = open("recipe.list","r")
+	data = file.read()
+	recipe_arr = data.split("\n")
+	file.close()
+	x = random.randint(0,len(recipe_arr))
+	await ctx.send("Recipe: "+ recipe_arr[x])
+
+
+@bot.command(name='rml', help = 'Removes Last, use if there is no thumbnail on your reccomendation')
 async def rml(ctx):
 	with open('yt_ids.list', 'r+') as file:
 		file.seek(0,os.SEEK_END)
