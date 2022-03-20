@@ -80,7 +80,7 @@ async def clearQ(ctx):
 
 @bot.command(name='adv',help = 'Adds an idea to the pool of adventure ')
 async def add_to_pool(ctx):
-	activity = ctx.message.content[3:]
+	activity = ctx.message.content[5:]
 	print(activity)
 	file = open("adv.list","a")
 	file.write(activity+"\n")
@@ -92,7 +92,7 @@ async def fecth_adventure(ctx):
 	file = open("adv.list","r")
 	data = file.read()
 	adv_arr = data.split("\n")
-	x = random.randint(0,len(adv_arr)-1)
+	x = random.randint(0,len(adv_arr))
 	await ctx.send("Adventure Suggestions: "+ adv_arr[x])
 
 
