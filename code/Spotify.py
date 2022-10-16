@@ -5,7 +5,7 @@ import pprint
 
 # User variables
 scope = "playlist-modify-public playlist-modify-private"
-pl = "7uhggSvWHcNLnJL8hTEd3q"  #REPLACE this playlistId with the correct one.
+pl = "6TCJblP0t8ogOaFAuv6jUP"  #REPLACE this playlistId with the correct one.
 
 # Operational variables
 searchLength = 255
