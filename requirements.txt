@@ -1,0 +1,2 @@
+discord~=2.0.0
+spotipy~=2.10.0
