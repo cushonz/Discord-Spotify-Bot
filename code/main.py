@@ -16,7 +16,7 @@ def convert(lst):
 passed_song = convert(passed_song)
 
 def getCreds():
-	with open(os.path.expanduser('~/.bot_creds'), 'r') as file:
+	with open(os.path.expanduser('bot_creds'), 'r') as file:
 		content = file.read()
 	if '\r' in content:
 		data = content.split('\r\n')
@@ -29,7 +29,7 @@ print(Spotify.cred)
 
 
 playlist = "https://open.spotify.com/playlist/6TCJblP0t8ogOaFAuv6jUP"
-intents = discord.Intents().default()
+intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='!',intents=intents)
 
 @bot.event
@@ -44,6 +44,7 @@ async def on_ready():
 		await channel.send("Added "+ passed_song + " to the playlist!\n"+ S_L)
 	else:
 		await channel2.send("Couldn't find '" + passed_song + "', try again in a few seconds.")
+	
 
 	
 
@@ -51,6 +52,7 @@ async def on_ready():
 async def stop(ctx):
 	name = ctx.message.content[4:]
 	os.system("python3 main.py " + name)
+	print("this is a test")
 
 @bot.command(name='yt', help='Adds video to youtube playlist queue')
 async def modYT(ctx):	
@@ -59,11 +61,13 @@ async def modYT(ctx):
 	if len(vid_split) > 1:
 		vid = vid_id[1]
 	else :
-		vid = vid_split.split("/")[3]
+		vid = vid_id.split("/")[3]
 	file = open("yt_ids.list","a")
 	file.write(vid+"\n")
 	file.close()
 	await ctx.send("Added your link to the playlist queue :)")
+	print("hi")
+	await bot.process_commands()
 
 @bot.command(name='getyt', help='Generates youtube link')
 async def genlink(ctx):
@@ -96,4 +100,4 @@ async def rml(ctx):
 			file.truncate()
 	await ctx.channel.send("Previous request removed.")
 
-bot.run(bot_cred['token'])
+bot.run(bot_cred['token'],)
