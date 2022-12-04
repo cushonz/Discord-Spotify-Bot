@@ -59,7 +59,7 @@ async def modYT(ctx):
 	vid_id = ctx.message.content[3:]
 	vid_split = vid_id.split("=")
 	if len(vid_split) > 1:
-		vid = vid_id[1]
+		vid = vid_split[1]
 	else :
 		vid = vid_id.split("/")[3]
 	file = open("yt_ids.list","a")

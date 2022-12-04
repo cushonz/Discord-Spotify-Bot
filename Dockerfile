@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 RUN apt-get update -y
 
-CMD [ "cd", "code" ]
+#CMD [ "cd", "code" ]
 CMD [ "python3", "main.py" ]
