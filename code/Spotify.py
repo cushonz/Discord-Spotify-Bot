@@ -10,20 +10,21 @@ pl = "6TCJblP0t8ogOaFAuv6jUP"  #REPLACE this playlistId with the correct one.
 # Operational variables
 searchLength = 255
 searchDividers = ['|', ';', ':', ',']
-searchRemoves = [(' by ', " "), ("'", ""), ('"', "")]
+searchRemoves = [(' by ', " "), ("'", ""), ('"', "") ]
 
 # Functions
-def getCred(redirectUri='http://localhost/'):
-        with open(os.path.expanduser('~/.spotify'), 'r') as file:
+def getCred(redirectUri="http://localhost:8080/callback"):
+        with open(os.path.expanduser('./spotify'), 'r') as file:
             content = file.read()
             if '\r' in content:
                 data = content.split('\r\n')
             else:
                 data = content.split('\n')
+            os.environ["SPOTIPY_USERNAME"] = data[0]    
             os.environ["SPOTIPY_CLIENT_ID"] = data[1]
             os.environ["SPOTIPY_CLIENT_SECRET"] = data[2]
             os.environ["SPOTIPY_REDIRECT_URI"] = redirectUri
-            return {'userName': data[0], 'clientId': data[1], 'clientSecret': data[2]}
+            return {'userName': data[0], 'clientId': data[1], 'clientSecret': data[2], 'redirect_uri': redirectUri}
 
 def processInput(searchString):
         for remove in searchRemoves:
@@ -76,7 +77,7 @@ def addToPlaylist(searchTerm):
 
 # Main
 cred = getCred()
-token = util.prompt_for_user_token(cred['userName'], scope)
+token = util.prompt_for_user_token(cred['userName'], scope, client_id = cred['clientId'], redirect_uri = cred['redirect_uri'])
 
 if token:
     sp = spotipy.Spotify(auth=token)
