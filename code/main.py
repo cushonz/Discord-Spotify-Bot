@@ -56,13 +56,16 @@ async def stop(ctx):
 
 @bot.command(name='yt', help='Adds video to youtube playlist queue')
 async def modYT(ctx):	
+	ytQ = "yt_ids.list"
+	if not (os.path.exists(ytQ)):
+		file = open(ytQ,"x")
 	vid_id = ctx.message.content[3:]
 	vid_split = vid_id.split("=")
 	if len(vid_split) > 1:
 		vid = vid_split[1]
 	else :
 		vid = vid_id.split("/")[3]
-	file = open("yt_ids.list","a")
+	file = open(ytQ,"a")
 	file.write(vid+"\n")
 	file.close()
 	await ctx.send("Added your link to the playlist queue :)")
