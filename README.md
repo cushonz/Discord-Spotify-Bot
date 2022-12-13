@@ -1,30 +1,18 @@
 # Discord Bot
 
-Just a simple bot to help me and my girlfriend share music a little more passively since we both struggle with switching tasks/remembering things. 
+To use this Discord bot, you will need to have a Discord account and a server where you can invite the bot.
 
+'https://discordapp.com/api/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=0&scope=bot'
 
-<p align="center">
-<img width = "460" height = "300" src = "/documentations/profile_pics/index.png">
-</p>
+Replace BOT_CLIENT_ID with the client id for the bot, which you can obtain from the bot's developer.
 
-Thought this was a cool project and worth expanding on :)
+2. Once the bot is added to your server, you can interact with it using the following commands:
 
-- Zach
+        !rec [song name] - adds the specified song to the Spotify playlist
+        !yt [YouTube video URL or ID] - adds the specified YouTube video to the queue
+        !getyt - generates a link to the YouTube playlist
+        !clearQ - clears the YouTube queue
 
-# Spotipy
+For example, to add the song "Bohemian Rhapsody" to the Spotify playlist, you would type !rec Bohemian Rhapsody in a Discord channel where the bot can read and write messages. To add a YouTube video to the queue, you would type !yt [YouTube video URL or ID] in the same channel.
 
-Largely, the code is handled within Spotify.py which largely leans on the [spotipy](https://spotipy.readthedocs.io/en/2.19.0/) library.
-
-This library is great but can be a bit cumbersome to work with at first.
-
-# Discord Bot API
-
-The [Discord Bot API](https://discord.com/developers/docs/intro) is well documented and was also used, but is the simpler component of this particular project.
-
-# Commands
-
-!rec <song name> - This command will add a song to the spotify playlist
-
-* !yt <youtube mobile link> - This command will add a video to the youtube queue
-* !getyt - This command will create a link to the YouTube queue.
-* !clearQ - This will clear the youtube q and make a backup incase anything cool was in there that the other person wanted.
+Note that the bot's functionality may be limited by the permissions it has on your server, so you may need to adjust its permissions in order for it to work properly.
