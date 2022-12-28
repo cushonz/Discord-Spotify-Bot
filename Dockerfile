@@ -7,10 +7,12 @@ FROM python:latest
 # Here we put the file at the image root folder.
 COPY * /
 
+RUN apt-get update -y
+
 RUN pip install --no-cache-dir --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 
-RUN apt-get update -y
+
 
 #CMD [ "cd", "code" ]
 CMD [ "python3", "main.py" ]
