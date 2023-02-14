@@ -3,4 +3,5 @@ bot_creds.json
 .*
 *.txt
 *.list
+__pycache__
 

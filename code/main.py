@@ -12,8 +12,10 @@ passed_song = sys.argv[1:]
 
 
 def convert(lst):
-
-    return ' '.join(lst)
+    if lst == None:
+        return None
+    else:
+        return ' '.join(lst)
 
 
 passed_song = convert(passed_song)
@@ -33,6 +35,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
+    print(passed_song)
     channel = bot.get_channel(947790182042726400)
     channel2 = bot.get_channel(946643918257283092)
     if Spotify.addToPlaylist(passed_song) != None:

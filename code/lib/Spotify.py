@@ -45,6 +45,8 @@ def currentSongTitle():
 
 
 def addToPlaylist(searchTerm):
+    if not searchTerm:
+        return None
     inputArray = utils.processInput(searchTerm)
     searchArray = []
     for element in inputArray:
