@@ -39,3 +39,10 @@ def processInput(searchString):
         if item in searchString:
             return [x.strip() for x in searchString.split(item)]
     return [searchString]
+
+
+def convert(lst):
+    if lst == None:
+        return None
+    else:
+        return ' '.join(lst)

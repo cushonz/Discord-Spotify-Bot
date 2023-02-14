@@ -43,7 +43,10 @@ To use this Discord Spotify Bot, you will need to do the following:
 }
 ```
 
-5.Update the paths.json file with the correct paths for your system.
-6.Run main.py to start the Discord bot
-
 If you need help obtaining a Spotify client ID and client secret, please follow the steps in [this tutorial](https://support.heateor.com/get-spotify-client-id-client-secret/)
+
+5.Update the paths.json file with the correct paths for your system.
+
+6.update Spotify.py pl variable to match your spotify playlist ID
+
+7.Run main.py to start the Discord bot

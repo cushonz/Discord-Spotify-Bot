@@ -10,21 +10,12 @@ import sys
 
 passed_song = sys.argv[1:]
 
-
-def convert(lst):
-    if lst == None:
-        return None
-    else:
-        return ' '.join(lst)
-
-
-passed_song = convert(passed_song)
+passed_song = utils.convert(passed_song)
 
 discordAuthPath = utils.getPaths()['discord_path']
 
 
 bot_cred = utils.getCreds(discordAuthPath)
-print(Spotify.cred)
 
 
 playlist = "https://open.spotify.com/playlist/6TCJblP0t8ogOaFAuv6jUP"
@@ -70,7 +61,6 @@ async def modYT(ctx):
     file.write(vid+"\n")
     file.close()
     await ctx.send("Added your link to the playlist queue :)")
-    print("hi")
     await bot.process_commands()
 
 
