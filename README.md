@@ -1,18 +1,29 @@
-# Discord Bot
+# Discord Spotify Bot Setup Instructions
 
-To use this Discord bot, you will need to have a Discord account and a server where you can invite the bot.
+To use this Discord Spotify Bot, you will need to do the following:
 
-'https://discordapp.com/api/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=0&scope=bot'
+1. Clone the repository to your local machine.
+2. Install the required Python modules using `pip install -r requirements.txt`.
+3. Create a `bot_creds.json` file with the following format:
 
-Replace BOT_CLIENT_ID with the client id for the bot, which you can obtain from the bot's developer.
+```json
+{
+  "client_secret": "YOUR_DISCORD_BOT_TOKEN_HERE"
+}
+```
 
-2. Once the bot is added to your server, you can interact with it using the following commands:
+4.Create a spotify.json file with the following format:
 
-        !rec [song name] - adds the specified song to the Spotify playlist
-        !yt [YouTube video URL or ID] - adds the specified YouTube video to the queue
-        !getyt - generates a link to the YouTube playlist
-        !clearQ - clears the YouTube queue
+```json
+{
+  "username": "YOUR_SPOTIFY_USERNAME_HERE",
+  "client_id": "YOUR_SPOTIFY_CLIENT_ID_HERE",
+  "client_secret": "YOUR_SPOTIFY_CLIENT_SECRET_HERE",
+  "redirect_uri": "YOUR_SPOTIFY_REDIRECT_URI_HERE"
+}
+```
 
-For example, to add the song "Bohemian Rhapsody" to the Spotify playlist, you would type !rec Bohemian Rhapsody in a Discord channel where the bot can read and write messages. To add a YouTube video to the queue, you would type !yt [YouTube video URL or ID] in the same channel.
+5.Update the paths.json file with the correct paths for your system.
+6.Run main.py to start the Discord bot
 
-Note that the bot's functionality may be limited by the permissions it has on your server, so you may need to adjust its permissions in order for it to work properly.
+If you need help obtaining a Spotify client ID and client secret, please follow the steps in [this tutorial](https://support.heateor.com/get-spotify-client-id-client-secret/)
