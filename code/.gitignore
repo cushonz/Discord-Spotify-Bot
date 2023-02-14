@@ -1,4 +1,5 @@
-*.bk
+spotify.json
+bot_creds.json
 .*
 *.txt
 *.list

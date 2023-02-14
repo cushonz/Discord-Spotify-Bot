@@ -1,0 +1,4 @@
+{
+    "discord_path":"./json/bot_creds.json",
+    "spotifyPath":"./json/spotify.json"
+}
