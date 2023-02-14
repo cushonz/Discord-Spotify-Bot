@@ -1,3 +1,23 @@
+# What it does
+
+This bot allows users to interact with their Spotify account via Discord. The bot has the ability to update playlists, build YouTube playlists and supports a number of commands that are defined in the main.py file.
+
+Specifically, the bot can create playlists in the user's Spotify account, add songs to existing playlists, remove songs from playlists, and get a list of the user's playlists. The bot can also build a YouTube playlist based on the songs in a user's Spotify playlist.
+
+Some of the main commands that the bot supports include:
+
+!help: displays the list of available bot commands
+!playlists: shows the list of the user's Spotify playlists
+!create_playlist: creates a new playlist in the user's Spotify account
+!add_to_playlist: adds a song to an existing Spotify playlist
+!remove_from_playlist: removes a song from a Spotify playlist
+!yt_playlist: builds a YouTube playlist based on the songs in a Spotify playlist
+These commands are defined in the main.py file, and the bot uses Discord.py to listen for and respond to messages in Discord. The bot also uses the Spotipy library to interact with the Spotify API, and the YouTube Data API to build YouTube playlists.
+
+# Purpose
+
+The bot was built with the purpose of being a passive way to share things with people in an organized way so that less reccomendations will go forgotten.
+
 # Discord Spotify Bot Setup Instructions
 
 To use this Discord Spotify Bot, you will need to do the following:
